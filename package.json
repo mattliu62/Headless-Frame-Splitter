@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/mattliu62/Headless-Frame-Splitter/issues"
   },
-  "homepage": "https://github.com/mattliu62/Headless-Frame-Splitter#readme"
+  "homepage": "https://github.com/mattliu62/Headless-Frame-Splitter#readme",
+  "dependencies": {
+    "ffmpeg-extract-frames": "^2.0.2",
+    "ytdl-core": "^4.11.0"
+  }
 }
