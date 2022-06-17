@@ -1,8 +1,8 @@
 const fs = require('fs');
 const ytdl = require('ytdl-core');
 const extractFrames = require('ffmpeg-extract-frames');
-const clearDirectory = require('./clearDirectory');
 const prompt = require("prompt-sync")({ sigint: true });
+const clearDirectory = require('./clearDirectory');
 
 async function run() {
     console.log('Headless Frame Splitter ver. 1.0')
@@ -20,6 +20,7 @@ async function run() {
     }
 
     await clearDirectory.clearDirectory();
+
     
     //function to run ytdl download
     async function download(link) {
@@ -46,6 +47,15 @@ async function run() {
         output: `./frames/frame-%d.png`,
         fps: 1,
         });
+
+        //deletes video
+        const video = './video.mp4';
+        fs.unlink(video, (err) => {
+            if (err) {
+            console.error(err)
+            return
+            }
+        })
     
         console.log('Successfully generated frames.')
         console.log('Mission Complete!')
