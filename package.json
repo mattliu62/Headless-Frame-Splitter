@@ -1,0 +1,19 @@
+{
+  "name": "ytsplit",
+  "version": "1.0.0",
+  "description": "Headless script for splitting YouTube videos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattliu62/Headless-Frame-Splitter.git"
+  },
+  "author": "Matthew Liu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattliu62/Headless-Frame-Splitter/issues"
+  },
+  "homepage": "https://github.com/mattliu62/Headless-Frame-Splitter#readme"
+}
