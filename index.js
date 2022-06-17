@@ -39,6 +39,8 @@ async function process() {
 
     console.log('Successfully generated frames.')
     console.log('Mission Complete!')
+    await new Promise(resolve => setTimeout(resolve, 5000));
+
 };
 
 clearDirectory.clearDirectory();
@@ -46,6 +48,7 @@ clearDirectory.clearDirectory();
 //checks to see if video URL is valid - if not, the program exits
 if (!ytdl.validateURL(link)) {
     console.log('Invalid URL.');
+    await new Promise(resolve => setTimeout(resolve, 3000));
     process.exit(1);
 
 } else {
