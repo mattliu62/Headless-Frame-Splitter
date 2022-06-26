@@ -3,17 +3,24 @@ const ytdl = require('ytdl-core');
 const extractFrames = require('ffmpeg-extract-frames');
 const prompt = require("prompt-sync")({ sigint: true });
 const clearDirectory = require('./clearDirectory');
+
+//default quality at 720P
 let defaultQuality = 136;
 
 async function run() {
-    console.log('           _______________________________\n /\\__/\\   / Video Frame Splitter ver. 1.1 |\n( ° □ °) <  Developed by mattliu62 (2022) |\n(      )  \\_______________________________|');
+    console.log('           _______________________________\n /\\__/\\   / Video Frame Splitter ver. 1.2 |\n( ° □ °) <  Developed by mattliu62 (2022) |\n(      )  \\_______________________________|');
     console.log('--------------------------------------------------');
     const link = prompt("Enter valid YouTube Link: ");
+
+    //prompts user for resolution input
     const resInput = prompt("Enter video resolution quality, type '720' or '1080': ");
     if (resInput == '1080') {
         defaultQuality = 137;
     }
-    
+
+    //prompts user for FPS
+    const defaultFrame = prompt("Enter video FPS: ");
+
     //create frames folder
     const folderName = './frames';
 
@@ -51,7 +58,7 @@ async function run() {
         await extractFrames({
         input: 'video.mp4',
         output: `./frames/frame-%d.png`,
-        fps: 1,
+        fps: defaultFrame,
         });
 
         //deletes video
