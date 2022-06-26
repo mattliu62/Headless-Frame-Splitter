@@ -3,10 +3,16 @@ const ytdl = require('ytdl-core');
 const extractFrames = require('ffmpeg-extract-frames');
 const prompt = require("prompt-sync")({ sigint: true });
 const clearDirectory = require('./clearDirectory');
+let defaultQuality = 136;
 
 async function run() {
-    console.log('Headless Frame Splitter ver. 1.0')
+    console.log('           _______________________________\n /\\__/\\   / Video Frame Splitter ver. 1.1 |\n( ° □ °) <  Developed by mattliu62 (2022) |\n(      )  \\_______________________________|');
+    console.log('--------------------------------------------------');
     const link = prompt("Enter valid YouTube Link: ");
+    const resInput = prompt("Enter video resolution quality, type '720' or '1080': ");
+    if (resInput == '1080') {
+        defaultQuality = 137;
+    }
     
     //create frames folder
     const folderName = './frames';
@@ -30,7 +36,7 @@ async function run() {
         
         console.log(`Now processing ${name}!`);
     
-        ytdl(link, {quality: '136', filter: 'videoonly'}).pipe(fs.createWriteStream(`video.mp4`)).on('finish', function() {
+        ytdl(link, {quality: defaultQuality, filter: 'videoonly'}).pipe(fs.createWriteStream(`video.mp4`)).on('finish', function() {
             console.log('Successfully downloaded video.');
     
             //call process function
