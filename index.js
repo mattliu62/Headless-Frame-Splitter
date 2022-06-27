@@ -32,8 +32,8 @@ async function run() {
     console.error(err);
     }
 
+    //removes video file (MP4) from the working directory
     await clearDirectory.clearDirectory();
-
     
     //function to run ytdl download
     async function download(link) {
@@ -72,6 +72,8 @@ async function run() {
     
         console.log('Successfully generated frames.')
         console.log('Mission Complete!')
+
+        //exits the program once complete
         setTimeout(function() {
             console.log('Exiting...');
         }, 3000);
